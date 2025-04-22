@@ -1,8 +1,10 @@
 .contact-container {
-    text-align: left;
+    text-align: center;
     padding: 2rem;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
+    color: white;
+    background-color: #0a0a23;
   }
   
   .content-row {
@@ -17,6 +19,7 @@
     flex: 1;
     text-align: left;
     min-width: 300px;
+    margin-left: 100px;
   }
   
   .page-image {
@@ -26,6 +29,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     min-width: 300px;
+    margin-right: 100px;
   }
   
   .text-content p {
@@ -42,6 +46,16 @@
   .text-content li {
     margin: 0.5rem 0;
     font-size: 1rem;
+  }  
+  .image a {
+    color: #88ccff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  .image a:hover {
+    color: #ffffff;
   }
   
   /* Responsive */
