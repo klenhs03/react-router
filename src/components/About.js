@@ -5,7 +5,7 @@ import galaxyImage from './images/galaxy.jpg'; // Sử dụng galaxy.jpg
 function About() {
   return (
     <div className="about-container">
-      <h1>ABOUT US</h1>
+      <h1>About Us</h1>
       <div className="content-row">
         <img src={galaxyImage} alt="Galaxy" className="page-image" />
         <div className="text-content">

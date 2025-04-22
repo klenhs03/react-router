@@ -52,10 +52,6 @@ function App() {
                     <li><Link to="/services/web">Web App</Link></li>
                     <li><Link to="/services/mobile">Mobile App</Link></li>
                     <li><Link to="/services/cloud">Cloud App</Link></li>
-                    {/* <li><Link to="">Desktop App</Link></li>
-                    <li><Link to="">Web App</Link></li>
-                    <li><Link to="">Mobile App</Link></li>
-                    <li><Link to="">Cloud App</Link></li> */}
                   </ul>
                 )}
               </li>
@@ -84,8 +80,8 @@ function App() {
         <footer className="footer">
           <p>Copyright © 2025 The Platinum</p>
           <p>
-            <a href="">Privacy Policy</a> |{' '}
-            <a href="">Security</a>
+            <a href="#">Privacy Policy</a> |{' '}
+            <a href="#">Security</a>
           </p>
           <p>Contact us:<a href="">kimkhanh@example.com</a></p>
         </footer>

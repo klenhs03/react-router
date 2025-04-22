@@ -6,6 +6,12 @@
     color: white;
     background-color: #0a0a23;
   }
+  .about-container h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #e0e0ff;
+  }
   
   .content-row {
     display: flex;
