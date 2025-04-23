@@ -48,8 +48,8 @@ function App() {
         <footer className="footer">
           <p>Copyright © 2025 The Platinum</p>
           <p>
-            <a href="#">Privacy Policy</a> |{' '}
-            <a href="#">Security</a>
+            <a href="privacy policy">Privacy Policy</a> |{' '}
+            <a href="security">Security</a>
           </p>
           <p>Contact us: <a href="mailto:kimkhanh@example.com">kimkhanh@example.com</a></p>
         </footer>
