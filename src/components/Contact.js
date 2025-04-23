@@ -51,12 +51,13 @@ function Contact() {
         <p>Any questions or remarks? Just write us a message!</p>
         <form className="contact-form" onSubmit={handleSubmit}>
             <input type="email" name="email" placeholder="Enter a valid email address" required/>
+            <input type="text" name="name" placeholder="Enter your Name" required/>
+            <textarea name="message" placeholder="Enter your message" required/>
             {submissionStatus === 'success' && (
                 <p className="success-message">{submissionMessage}</p>
             )}
              {submissionStatus === 'error' && <p className="error-message">{submissionMessage}</p>}
-            <input type="text" name="name" placeholder="Enter your Name" required/>
-
+           
             <button type="submit">SUBMIT</button>
         </form>
       </div>
@@ -76,7 +77,6 @@ function Contact() {
           <p>The Platinum Company<br />Thuan Hoa District, Hue City, Vietnam</p>
         </div>
       </div>
-    </div>
   );
 }
 
