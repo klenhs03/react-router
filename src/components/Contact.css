@@ -116,6 +116,20 @@
   line-height: 1.5;
 }
 
+.status-message {
+  margin-top: 10px;
+  color: green; /* Change to red for errors if needed */
+  font-size: 14px;
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .contact-container {
