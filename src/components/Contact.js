@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Contact.css';
 import runningIcon from './images/running-icon.png';
 import phoneIcon from './images/phone-icon.png';
@@ -6,6 +6,9 @@ import locationIcon from './images/location-icon.png';
 
 
 function Contact() {
+    const [submissionStatus, setSubmissionStatus] = useState(null);
+    const [submissionMessage, setSubmissionMessage] = useState('');
+
     const handleSubmit = (event) => {
         event.preventDefault();
     
@@ -16,7 +19,7 @@ function Contact() {
           message: formData.get('message')
         };
     
-        fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        fetch('https://api.emailjs.com/api/v1.0/email/send', { 
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -27,7 +30,19 @@ function Contact() {
             user_id: 'gUfQJ-89n1vRz-9jB',
             template_params:{...data, to_email:'kimkhanh151003@gmail.com'}
           })
-        })
+        }).then(response => {
+            if (response.ok) {
+                setSubmissionStatus('success');
+                setSubmissionMessage('Thank you! Your message has been sent successfully.');
+            } else {
+                setSubmissionStatus('error');
+                setSubmissionMessage('Oops! Something went wrong. Please try again later.');
+            }
+        }).catch(error => {
+            console.error('Error sending email:', error);
+            setSubmissionStatus('error');
+            setSubmissionMessage('Oops! Something went wrong. Please try again later.');
+        });
       };
   return (
     <div className="contact-container">
@@ -38,6 +53,10 @@ function Contact() {
             <input type="email" name="email" placeholder="Enter a valid email address" required/>
             <input type="text" name="name" placeholder="Enter your Name" required/>
             <button type="submit">SUBMIT</button>
+            {submissionStatus === 'success' && (
+                <p className="success-message">{submissionMessage}</p>
+            )}
+             {submissionStatus === 'error' && <p className="error-message">{submissionMessage}</p>}
         </form>
       </div>
       <div className="contact-info-section">
