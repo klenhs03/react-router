@@ -10,56 +10,24 @@ import CloudApp from './components/services/CloudApp';
 import './App.css';
 
 function App() {
-  const [showDropdown, setShowDropdown] = useState(false);
-
   return (
     <Router>
       <div className="app-container">
         {/* Header */}
         <header className="header">
-          <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/about">About us</Link>
-              </li>
-              <li
-                onMouseEnter={() => setShowDropdown(true)}
-                onMouseLeave={() => setShowDropdown(false)}
-                style={{ position: 'relative', marginTop:'1.9rem' }}
-              >
-                <span>
-                  Services ▾
-                </span>
-                {showDropdown && (
-                  <ul
-                    style={{
-                      position: 'absolute',
-                      top: '2.5rem',
-                      left: 0,
-                      backgroundColor: '#333',
-                      listStyle: 'none',
-                      padding: '0.5rem 0',
-                      margin: 0,
-                      borderRadius: '4px',
-                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
-                      zIndex: 1000,
-                    }}
-                  >
-                    <li><Link to="/services/desktop">Desktop App</Link></li>
-                    <li><Link to="/services/web">Web App</Link></li>
-                    <li><Link to="/services/mobile">Mobile App</Link></li>
-                    <li><Link to="/services/cloud">Cloud App</Link></li>
-                  </ul>
-                )}
-              </li>
-
-              <li>
-                <Link to="/contact">Contact us</Link>
-              </li>
-            </ul>
+          <nav className="navbar">
+            <a><Link to="/">Home</Link></a>
+            <a><Link to="/about">About us</Link></a>
+            <div className="dropdown">
+              <button className="dropbtn">Services ▾</button>
+              <div className="dropdown-content">
+                <a><Link to="/services/desktop">Desktop App</Link></a>
+                <a><Link to="/services/web">Web App</Link></a>
+                <a><Link to="/services/mobile">Mobile App</Link></a>
+                <a><Link to="/services/cloud">Cloud App</Link></a>
+              </div>
+            </div>
+            <a><Link to="/contact">Contact us</Link></a>
           </nav>
         </header>
 
@@ -80,10 +48,10 @@ function App() {
         <footer className="footer">
           <p>Copyright © 2025 The Platinum</p>
           <p>
-            <a href="#">Privacy Policy</a> |{' '}
-            <a href="#">Security</a>
+            <a href="privacy policy">Privacy Policy</a> |{' '}
+            <a href="security">Security</a>
           </p>
-          <p>Contact us:<a href="">kimkhanh@example.com</a></p>
+          <p>Contact us: <a href="mailto:kimkhanh@example.com">kimkhanh@example.com</a></p>
         </footer>
       </div>
     </Router>
