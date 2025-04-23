@@ -51,15 +51,15 @@ function Contact() {
         <p>Any questions or remarks? Just write us a message!</p>
         <form className="contact-form" onSubmit={handleSubmit}>
             <input type="email" name="email" placeholder="Enter a valid email address" required/>
+            <input type="text" name="name" placeholder="Enter your Name" required/>
+            <button type="submit">SUBMIT</button>
             {submissionStatus === 'success' && (
                 <p className="success-message">{submissionMessage}</p>
             )}
              {submissionStatus === 'error' && <p className="error-message">{submissionMessage}</p>}
-            <input type="text" name="name" placeholder="Enter your Name" required/>
-
-            <button type="submit">SUBMIT</button>
         </form>
       </div>
+      <div className="contact-info-section">
         <div className="info-card">
           <img src={runningIcon} alt="Running" className="info-icon" />
           <h3>ABOUT US</h3>
