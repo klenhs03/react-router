@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Contact.css';
 import runningIcon from './images/running-icon.png';
 import phoneIcon from './images/phone-icon.png';
@@ -6,9 +6,6 @@ import locationIcon from './images/location-icon.png';
 
 
 function Contact() {
-    const [submissionStatus, setSubmissionStatus] = useState(null);
-    const [submissionMessage, setSubmissionMessage] = useState('');
-
     const handleSubmit = (event) => {
         event.preventDefault();
     
@@ -19,7 +16,7 @@ function Contact() {
           message: formData.get('message')
         };
     
-        fetch('https://api.emailjs.com/api/v1.0/email/send', { 
+        fetch('https://api.emailjs.com/api/v1.0/email/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -30,19 +27,7 @@ function Contact() {
             user_id: 'gUfQJ-89n1vRz-9jB',
             template_params:{...data, to_email:'kimkhanh151003@gmail.com'}
           })
-        }).then(response => {
-            if (response.ok) {
-                setSubmissionStatus('success');
-                setSubmissionMessage('Thank you! Your message has been sent successfully.');
-            } else {
-                setSubmissionStatus('error');
-                setSubmissionMessage('Oops! Something went wrong. Please try again later.');
-            }
-        }).catch(error => {
-            console.error('Error sending email:', error);
-            setSubmissionStatus('error');
-            setSubmissionMessage('Oops! Something went wrong. Please try again later.');
-        });
+        })
       };
   return (
     <div className="contact-container">
@@ -52,20 +37,7 @@ function Contact() {
         <form className="contact-form" onSubmit={handleSubmit}>
             <input type="email" name="email" placeholder="Enter a valid email address" required/>
             <input type="text" name="name" placeholder="Enter your Name" required/>
-<<<<<<< HEAD
             <button type="submit">SUBMIT</button>
-=======
-            <textarea name="message" placeholder="Enter your message" required/>
->>>>>>> dd34ba8cad2a4769e25a0518b7ec47288f126948
-            {submissionStatus === 'success' && (
-                <p className="success-message">{submissionMessage}</p>
-            )}
-             {submissionStatus === 'error' && <p className="error-message">{submissionMessage}</p>}
-<<<<<<< HEAD
-=======
-           
-            <button type="submit">SUBMIT</button>
->>>>>>> dd34ba8cad2a4769e25a0518b7ec47288f126948
         </form>
       </div>
       <div className="contact-info-section">
@@ -85,6 +57,7 @@ function Contact() {
           <p>The Platinum Company<br />Thuan Hoa District, Hue City, Vietnam</p>
         </div>
       </div>
+    </div>
   );
 }
 
