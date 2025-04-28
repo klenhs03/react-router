@@ -4,20 +4,21 @@ import runningIcon from './images/running-icon.png';
 import phoneIcon from './images/phone-icon.png';
 import locationIcon from './images/location-icon.png';
 
+const status = {
+  isLoading: false,
+  isSuccess: false,
+  isError: false,
+  message: '',
+  showMessage: false,
+}
 
 function Contact() {  
-  const [submissionStatus, setSubmissionStatus] = useState({
-    isLoading: false,
-    isSuccess: false,
-    isError: false,
-    message: '',
-    showMessage: false,
-  });
+  const [submissionStatus, setSubmissionStatus] = useState(status);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmissionStatus({ isLoading: true, isSuccess: false, isError: false, message: '', showMessage: false});
-
+    // setSubmissionStatus({ isLoading: true, isSuccess: false, isError: false, message: '', showMessage: false});
+    setSubmissionStatus({...status, isLoading: true })
     const formData = new FormData(event.target);
     const data = {
       email: formData.get('email'),
@@ -35,30 +36,12 @@ function Contact() {
         });
 
         if (response.ok) {
-            setSubmissionStatus({
-                isLoading: false,
-                isSuccess: true,
-                isError: false,
-                message: 'Your message has been sent successfully!',
-                showMessage: true,
-            });
+            setSubmissionStatus({...status, isSuccess: true, message: 'Your message has been sent successfully!', showMessage:true})
         } else {
-            setSubmissionStatus({
-                isLoading: false,
-                isSuccess: false,
-                isError: true,
-                message: 'There was an error sending your message.',
-                showMessage: true,
-            });
+            setSubmissionStatus({...status, isError: true, message: 'There was an error sending your message.', showMessage:true})
         }
     } catch (error) {
-        setSubmissionStatus({
-            isLoading: false,
-            isSuccess: false,
-            isError: true,
-            message: 'An unexpected error occurred.',
-            showMessage: true,
-        });
+        setSubmissionStatus({...status, isError: true, message: 'An unexpected error occurred.', showMessage: true})
     }
   };
 
@@ -69,7 +52,6 @@ function Contact() {
         <p>Any questions or remarks? Just write us a message!</p>
         <form className="contact-form" onSubmit={handleSubmit}>
           <input type="email" name="email" placeholder="Enter a valid email address" required />
-          <input type="text" name="name" placeholder="Enter your Name" required />
           <textarea name="message" placeholder="Enter your message" required></textarea>
           {submissionStatus.showMessage && (
             <div className={submissionStatus.isSuccess ? 'success-message' : 'error-message'}>
