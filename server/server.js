@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
@@ -12,8 +13,8 @@ app.use(express.json()); // Parse JSON body
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'your-email@gmail.com', // Thay bằng email Gmail của bạn
-    pass: 'your-app-password', // Thay bằng App Password của Gmail
+    user: process.env.GMAIL_USER, // kimkhanh151003@gmail.com
+    pass: process.env.GMAIL_PASS, // App Password
   },
 });
 
@@ -28,7 +29,7 @@ app.post('/api/send-email', async (req, res) => {
 
   // Cấu hình email
   const mailOptions = {
-    from: 'your-email@gmail.com', // Người gửi
+    from: process.env.GMAIL_USER, // kimkhanh151003@gmail.com
     to: 'kimkhanh151003@gmail.com', // Người nhận
     subject: `Liên hệ mới từ ${name}`,
     text: `
