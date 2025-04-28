@@ -10,79 +10,66 @@
   background-color: #0a0a23;
 }
 
-/* Form Section */
 .contact-form-section {
-  margin-bottom: 2rem;
+  max-width: 500px;
 }
 
 .contact-form-section h1 {
-  /* font-size: 2.5rem;
+  font-size: 2.5rem;
   color: #e0e0ff;
-  margin: 0 0 1rem 0; */
-  
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 30px;
-  color: #e0e0ff;
-  
+  margin-bottom: 10px;
 }
 
 .contact-form-section p {
   font-size: 1.1rem;
-  color: gray;
-  margin: 0 0 1.5rem 0;
+  color: #666;
+  margin-bottom: 20px;
 }
 
 .contact-form {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  max-width: 600px;
-  margin: 0 auto;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.contact-form input {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 250px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
   outline: none;
-  transition: border-color 0.3s;
+  border-color: #007bff;
+  background-color: #fff;
 }
 
 .contact-form textarea {
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 250px;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.contact-form input:focus {
-  border-color: rgb(80, 75, 75);
+  height: 120px;
+  resize: vertical;
 }
 
 .contact-form button {
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
+  padding: 12px;
+  background-color: gray;
   color: white;
-  background: rgb(80, 75, 75);
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
+  font-size: 1.1rem;
   cursor: pointer;
-  transition: background 0.3s;
-  margin-bottom: 3rem;
+  transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
-  background: #8d8c8c;
+  background-color: #333;
 }
+
 
 /* Info Section */
 .contact-info-section {
@@ -95,6 +82,7 @@
   border-radius: 8px;
   width: 100%;
   max-width: 1000px;
+  margin-top: 3rem;
 }
 
 .info-card {

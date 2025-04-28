@@ -17,31 +17,32 @@ function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // setSubmissionStatus({ isLoading: true, isSuccess: false, isError: false, message: '', showMessage: false});
-    setSubmissionStatus({...status, isLoading: true })
+  
     const formData = new FormData(event.target);
     const data = {
       email: formData.get('email'),
       name: formData.get('name'),
       message: formData.get('message'),
     };
-
+  
     try {
-        const response = await fetch('/api/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-            setSubmissionStatus({...status, isSuccess: true, message: 'Your message has been sent successfully!', showMessage:true})
-        } else {
-            setSubmissionStatus({...status, isError: true, message: 'There was an error sending your message.', showMessage:true})
-        }
+      const response = await fetch('http://localhost:3000/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (response.ok) {
+        alert('Your message has been sent successfully!');
+        event.target.reset();
+      } else {
+        throw new Error('Failed to send email');
+      }
     } catch (error) {
-        setSubmissionStatus({...status, isError: true, message: 'An unexpected error occurred.', showMessage: true})
+      console.error('Error:', error);
+      alert('There was an error sending your message. Please try again later.');
     }
   };
 
@@ -51,16 +52,24 @@ function Contact() {
         <h1>Contact Us</h1>
         <p>Any questions or remarks? Just write us a message!</p>
         <form className="contact-form" onSubmit={handleSubmit}>
-          <input type="email" name="email" placeholder="Enter a valid email address" required />
-          <textarea name="message" placeholder="Enter your message" required></textarea>
-          {submissionStatus.showMessage && (
-            <div className={submissionStatus.isSuccess ? 'success-message' : 'error-message'}>
-              {submissionStatus.message}
-            </div>
-          )}
-          <button type="submit" disabled={submissionStatus.isLoading}>
-            {submissionStatus.isLoading ? 'Sending...' : 'SUBMIT'}
-          </button>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter a valid email address"
+            required
+          />
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter your Name"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Enter your message"
+            required
+          ></textarea>
+          <button type="submit">SUBMIT</button>
         </form>
       </div>
       <div className="contact-info-section">

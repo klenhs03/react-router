@@ -1,61 +1,36 @@
-require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 const app = express();
-const port = 5000;
 
-// Middleware
-app.use(cors()); // Cho phép request từ frontend
-app.use(express.json()); // Parse JSON body
+app.use(cors());
+app.use(express.json());
 
-// Cấu hình Nodemailer (SMTP Gmail)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.GMAIL_USER, // kimkhanh151003@gmail.com
-    pass: process.env.GMAIL_PASS, // App Password
+    user: 'kimkhanh151003@gmail.com', // Thay bằng email của bạn
+    pass: 'lmrh lfsh xvov puwe', // Tạo App Password từ Google Account
   },
 });
 
-// Endpoint API để gửi email
-app.post('/api/send-email', async (req, res) => {
+app.post('/send', async (req, res) => {
   const { email, name, message } = req.body;
 
-  // Kiểm tra dữ liệu đầu vào
-  if (!email || !name || !message) {
-    return res.status(400).json({ message: 'Tất cả các trường là bắt buộc' });
-  }
-
-  // Cấu hình email
   const mailOptions = {
-    from: process.env.GMAIL_USER, // kimkhanh151003@gmail.com
-    to: 'kimkhanh151003@gmail.com', // Người nhận
-    subject: `Liên hệ mới từ ${name}`,
-    text: `
-      Tên: ${name}
-      Email: ${email}
-      Tin nhắn: ${message}
-    `,
-    html: `
-      <h3>Liên hệ mới</h3>
-      <p><strong>Tên:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Tin nhắn:</strong> ${message}</p>
-    `,
+    from: 'your-email@gmail.com',
+    to: 'kimkhanh151003@gmail.com',
+    subject: `New Contact Form Submission from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
   try {
-    // Gửi email
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Email đã được gửi thành công!' });
+    res.status(200).send('Email sent successfully');
   } catch (error) {
-    console.error('Lỗi khi gửi email:', error);
-    res.status(500).json({ message: 'Gửi email thất bại', error: error.message });
+    console.error(error);
+    res.status(500).send('Error sending email');
   }
 });
 
-// Khởi động server
-app.listen(port, () => {
-  console.log(`Server chạy tại http://localhost:${port}`);
-});
+app.listen(3000, () => console.log('Server running on port 3000'));
