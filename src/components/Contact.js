@@ -61,7 +61,7 @@ function Contact() {
           <input
             type="text"
             name="name"
-            placeholder="Enter your Name"
+            placeholder="Enter your name"
             required
           />
           <textarea
