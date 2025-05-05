@@ -20,7 +20,7 @@ app.post('/send', async (req, res) => {
   const mailOptions = {
     from: 'your-email@gmail.com',
     to: 'kimkhanh151003@gmail.com',
-    subject: `New Contact Form Submission from ${name}`,
+    subject: `New Contact Support Form from ${name}`,
     text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
