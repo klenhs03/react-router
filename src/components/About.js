@@ -9,13 +9,13 @@ function About() {
       <div className="content-row">
         <img src={galaxyImage} alt="Galaxy" className="page-image" />
         <div className="text-content">
-          <p>
-            Chúng tôi là một nhóm phát triển ứng dụng web, chuyên xây dựng các giải pháp hiện đại với React.
-          </p>
-          <h2>Sứ mệnh của chúng tôi</h2>
-          <p>
-            Mang đến trải nghiệm người dùng tuyệt vời thông qua các ứng dụng web nhanh, đẹp và dễ sử dụng.
-          </p>
+        <p>
+          We are a web application development team, specializing in building modern solutions with React.
+        </p>
+        <h2>Our Mission</h2>
+        <p>
+          To deliver an exceptional user experience through fast, beautiful, and user-friendly web applications.
+        </p>
         </div>
       </div>
     </div>

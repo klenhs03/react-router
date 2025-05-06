@@ -48,10 +48,10 @@ function App() {
         <footer className="footer">
           <p>Copyright © 2025 Kew Company</p>
           <p>
-            <a href="privacy policy">Privacy Policy</a> |{' '}
-            <a href="security">Security</a>
+            <a href="#">Privacy Policy</a> |{' '}
+            <a href="#">Security</a>
           </p>
-          <p>Contact us: <a href="mailto:kimkhanh@example.com">kimkhanh@example.com</a></p>
+          <p>Contact us: <a href="mailto:kimkhanh@example.com">kimkhanh151003@gmail.com</a></p>
         </footer>
       </div>
     </Router>

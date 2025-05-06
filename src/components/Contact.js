@@ -86,7 +86,7 @@ function Contact() {
         <div className="info-card">
           <img src={locationIcon} alt="Location" className="info-icon" />
           <h3>OUR OFFICE LOCATION</h3>
-          <p>The Platinum Company<br />Thuan Hoa District, Hue City, Vietnam</p>
+          <p>Kew Company<br />Thuan Hoa District, Hue City, Vietnam</p>
         </div>
       </div>
     </div>
