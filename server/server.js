@@ -21,7 +21,7 @@ app.post('/send', async (req, res) => {
     from: 'your-email@gmail.com',
     to: 'kimkhanh151003@gmail.com',
     subject: `New Contact Support Form from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    text: `Name:\n${name}\nEmail:\n${email}\nMessage:\n${message}`,
   };
 
   try {

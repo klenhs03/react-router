@@ -21,10 +21,10 @@ function Home() {
       <div className="content">
         <h1>What we do</h1>
         <ul>
-          <li><img src={desktopImage} /><Link to="/">Desktop Application Development</Link></li>
-          <li><img src={webImage} /><Link to="/">Web Application Development</Link></li>
-          <li><img src={mobileImage} /><Link to="/">Web Application Development</Link></li>
-          <li><img src={cloudImage} /><Link to="/">Web Application Development</Link></li>
+          <li><img src={desktopImage} /><Link to="/services/desktop">Desktop Application Development</Link></li>
+          <li><img src={webImage} /><Link to="/services/web">Web Application Development</Link></li>
+          <li><img src={mobileImage} /><Link to="/services/mobile">Mobile Application Development</Link></li>
+          <li><img src={cloudImage} /><Link to="/services/cloud">Cloud Application Development</Link></li>
         </ul>
       </div>
     </div>

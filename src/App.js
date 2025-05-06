@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useLocation } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
@@ -8,6 +8,16 @@ import WebApp from './components/services/WebApp';
 import MobileApp from './components/services/MobileApp';
 import CloudApp from './components/services/CloudApp';
 import './App.css';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
