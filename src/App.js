@@ -46,7 +46,7 @@ function App() {
 
         {/* Footer */}
         <footer className="footer">
-          <p>Copyright © 2025 The Platinum</p>
+          <p>Copyright © 2025 Kew Company</p>
           <p>
             <a href="privacy policy">Privacy Policy</a> |{' '}
             <a href="security">Security</a>

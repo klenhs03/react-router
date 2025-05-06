@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function Home() {
   return (
     <div className="home-container">
-      <h1>The Platinum</h1>
+      <h1>Kew Company</h1>
       <div className="hero-section">
         <img src={galaxyImage} alt="Galaxy" className="hero-image" />
         <div className="hero-text">
