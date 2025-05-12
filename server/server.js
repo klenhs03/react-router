@@ -9,7 +9,7 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'kimkhanh151003@gmail.com', // Thay bằng email của bạn
+    user: 'kimkhanh151003@gmail.com',
     pass: 'ekyw rfsg ovbd isbr', // Tạo App Password từ Google Account
   },
 });
