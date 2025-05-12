@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'kimkhanh151003@gmail.com', // Thay bằng email của bạn
-    pass: 'lmrh lfsh xvov puwe', // Tạo App Password từ Google Account
+    pass: 'ekyw rfsg ovbd isbr', // Tạo App Password từ Google Account
   },
 });
 
@@ -21,7 +21,11 @@ app.post('/send', async (req, res) => {
     from: 'your-email@gmail.com',
     to: 'kimkhanh151003@gmail.com',
     subject: `New Contact Support Form from ${name}`,
-    text: `Name:\n${name}\nEmail:\n${email}\nMessage:\n${message}`,
+    html: `
+    <p><span style="font-size: 1.2em; font-weight: bold;">${name}</p>
+    <p><strong>Email:</strong><br>${email}</p>
+    <p><strong>Message:</strong><br>${message}</p>
+  `,
   };
 
   try {
